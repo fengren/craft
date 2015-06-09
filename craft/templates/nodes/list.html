@@ -1,0 +1,24 @@
+<!-- /.row -->
+<div class="row">
+    <div class="table-responsive">
+        <table id="node_list" class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>IP</th>
+                    <th>PORT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for node in nodes %}
+                <tr class="warning">
+                    <td>{{ node.hostname }}</td>
+                    <td>{{ node.ip }}</td>
+                    <td>{{ node.port }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /.row -->

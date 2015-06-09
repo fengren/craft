@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">
+                物理节点
+            </h3>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group" style="display:inline-block;">
+            <div style="display:inline-block;">
+                <label for="name">分组</label>
+                <select class="form-control">
+                   <option>角色</option>
+                   <option>配置</option>
+                   <option>角色和配置</option>
+                </select>
+            </div>
+
+            <div style="display:inline-block;">
+                <label style="display:inline-block;">查询</label>
+                <input type="text" class="form-control" id="node_list_filter" name="filter" placeholder="Name / Mac">
+                </input>
+            </div>
+        </div>
+             <button type="button" id="bt_node_add" class="btn btn-sm btn-success">添加物理节点</button>
+    </div>
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="table-responsive">
+            <table id="node_list" class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>IP</th>
+                        <th>PORT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for node in nodes %}
+                    <tr class="warning">
+                        <td>{{ node.hostname }}</td>
+                        <td>{{ node.ip }}</td>
+                        <td>{{ node.port }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- /.container-fluid -->
+    <div class="modal fade" id="node-add-modal" tabindex="-1" role="dialog" aria-labelledby="node-add" aria-hidden="true">
+        <div class="modal-dialog" id="node-add-dialog">
+            <div class="modal-content" id="node-add-content">
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</div>
+{% endblock %}
